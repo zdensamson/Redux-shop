@@ -1,4 +1,13 @@
-import { Actions } from "../constants";
+ import {
+ ADD_TO_CART,
+ ADD_MULTIPLE_TO_CART,
+ REMOVE_FROM_CART,
+ CLEAR_CART,
+ UPDATE_CART_QUANTITY,
+ TOGGLE_CART,
+UPDATE_CATEGORIES,
+UPDATE_CURRENT_CATEGORY,
+ UPDATE_PRODUCTS} from '../constants.js'
 
 const initialState = {
     cartOpen: false,
@@ -7,38 +16,38 @@ const initialState = {
 
 export default function cartReducer(state = initialState, {type, payload}) {
     switch (type) {
-        case Actions.TOGGLE_CART:
+        case TOGGLE_CART:
             return {
                 ...state,
                 cartOpen: !state.cartOpen
             };
-        case Actions.CLEAR_CART:
+        case CLEAR_CART:
             return {
                 cart: [],
                 cartOpen: false
             };
-        case Actions.ADD_TO_CART: 
+        case ADD_TO_CART: 
             return {
                 cart: [...state.cart, payload],
                 cartOpen: true
             };
-        case Actions.ADD_MULTIPLE_TO_CART:
+        case ADD_MULTIPLE_TO_CART:
             return {
                 cart: [...state.cart, ...payload],
                 cartOpen: state.cart.length > 0 
             };
-        case Actions.REMOVE_FROM_CART:
+        case REMOVE_FROM_CART:
             const newState = state.cart.filter(product => product._id !== payload)
             return {
                 cart: newState,
                 cartOpen: newState.length > 0 
             };
-        case Actions.UPDATE_CART_QUANTITY:
+        case UPDATE_CART_QUANTITY:
             return {
                 cartOpen: true,  
                 cart: state.cart.map(product =>{
                     if(product._id === payload._id) {
-                        product.purchaseQty = payload.purchaseQty
+                        product.purchaseQuantity = payload.purchaseQuantity
                     }
                     return product; 
                 })

@@ -1,4 +1,5 @@
-import { Actions } from "../constants";
+import {
+    UPDATE_PRODUCTS} from '../constants.js'
 
 const initialState = {
     products: []
@@ -6,7 +7,7 @@ const initialState = {
 
 export default function productsReducer(state = initialState, {type, payload}){
     switch (type) {
-        case Actions.UPDATE_PRODUCTS:
+        case UPDATE_PRODUCTS:
             return [...payload]
         default: 
             return state

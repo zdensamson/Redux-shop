@@ -1,15 +1,14 @@
-import { Actions } from "../constants";
-
-const initialCategoryState = {
-    categories: []
-};
+import {
+   UPDATE_CATEGORIES
+} from '../constants.js'
 
 
-export default function categoriesReducer(state = initialCategoryState, { type, payload }) {
+
+export default function categoriesReducer(categories = [], { type, payload }) {
     switch (type) {
-        case Actions.UPDATE_CATEGORIES:
+        case UPDATE_CATEGORIES:
             return [...payload];
         default: 
-            return state; 
+            return categories; 
     }
 };

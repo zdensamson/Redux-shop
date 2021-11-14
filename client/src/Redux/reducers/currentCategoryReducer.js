@@ -1,4 +1,6 @@
-import { Actions } from "../constants";
+import {
+   UPDATE_CURRENT_CATEGORY
+ } from '../constants.js'
 
 const initialCurrentCategoryState = {
     currentCategory: ''
@@ -6,7 +8,7 @@ const initialCurrentCategoryState = {
 
 export default function currentCategoryReducer(state = initialCurrentCategoryState, { type, payload }) {
     switch(type) {
-        case Actions.UPDATE_CURRENT_CATEGORY:
+        case UPDATE_CURRENT_CATEGORY:
             return payload;
         default:
             return state; 
