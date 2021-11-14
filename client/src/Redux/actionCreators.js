@@ -40,3 +40,19 @@ export const clearCart = () => {
         type: Actions.clearCart
     };
 };
+
+// category actions
+export const updateCategories = (categories) => {
+    return {
+        type: Actions.UPDATE_CATEGORIES,
+        payload: categories
+    };
+};
+
+// current category actions
+export const updateCurrentCategory = (category) => {
+    return {
+        type: Actions.UPDATE_CURRENT_CATEGORY,
+        payload: category
+    };
+};
