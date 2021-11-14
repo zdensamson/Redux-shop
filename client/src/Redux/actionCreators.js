@@ -41,7 +41,7 @@ export const clearCart = () => {
     };
 };
 
-// category actions
+// category action
 export const updateCategories = (categories) => {
     return {
         type: Actions.UPDATE_CATEGORIES,
@@ -56,3 +56,11 @@ export const updateCurrentCategory = (category) => {
         payload: category
     };
 };
+
+// product action
+export const updateProducts = (products) => {
+    return {
+        type: Actions.UPDATE_PRODUCTS,
+        payload: products
+    }
+}
