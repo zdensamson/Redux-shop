@@ -24,7 +24,7 @@ function CategoryMenu() {
       });
     } else if (!loading) {
       idbPromise('categories', 'get').then(categoriesData => {
-        dispatch(updateCategories(categoryData.categories)); 
+        dispatch(updateCategories(categoriesData.categories)); 
       });
     }
   }, [categoryData, dispatch, loading]);
